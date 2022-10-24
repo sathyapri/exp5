@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURRENY CONVERTER</title>
+        <link rel="stylesheet" href="stylea.css">
+    <script>
+        function convert(){
+            var amount = document.getElementById('amount').value;
+            var from = document.getElementById('from').value;
+            var to = document.getElementById('to').value;
+            var result = "";
+            switch(from){
+                case "USD":
+                    switch(to){
+                        case"USD" : result = "$."+amount;
+                                    break;
+                        case"INR" : result = " ₹."+amount*79.91;
+                                    break; 
+                        case"EURO" : result = " €."+amount*79.10;
+                                    break;
+                        case"Japanese Yen" : result = " ¥."+amount*0.55;
+                                    break; 
+                        case"Singapore Dollar" : result = " S$."+amount*56.75;
+                                    break;               
+                    }
+                    break;
+            }
+            switch(to){
+                case "INR":
+                    switch(to){
+                        case"USD" : result = "$."+amount;
+                                    break;
+                        case"INR" : result = " ₹."+amount*79.91;
+                                    break;      
+                        case"EURO" : result = " €."+amount*79.10;
+                                    break;
+                        case"Japanese Yen" : result = " ¥."+amount*0.55;
+                                    break; 
+                        case"Singapore Dollar" : result = " S$."+amount*56.75;
+                                    break;          
+                    }
+            }
+            document.getElementById('result').innerHTML = result;
+                }
+        </script>
+</head>
+        <body>
+            <fieldset align="center">
+                <h1>Curreny Converter</h1>
+            Amount: <input type="text" id="amount" onkeyup="convert()">
+            <br><br>
+            From:
+            <select id="from" onchange="convert()">
+                <option>USD</option>
+                <option>INR</option>
+                <option>EURO</option>
+                <option>Japanese Yen</option>
+                <option>Singapore Dollar</option>
+            </select>
+            <br><br>
+            To:
+            <select id="to" onchange="convert()">
+                <option>USD</option>
+                <option>INR</option>
+                <option>EURO</option>
+                <option>Japanese Yen</option>
+                <option>Singapore Dollar</option>
+            </select>
+            <br><br>
+            <dic id="result" style="color:blue;font:size 20px;"></dic>
+        </fieldset>
+</body>
+</html>
